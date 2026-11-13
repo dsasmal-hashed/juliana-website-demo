@@ -27,6 +27,18 @@
     });
   }
 
+  // Review mode: open the page with #review to highlight placeholders still to confirm
+  function checkReview() {
+    if (location.hash !== '#review' || document.documentElement.classList.contains('review')) return;
+    document.documentElement.classList.add('review');
+    var b = document.createElement('div');
+    b.className = 'review-banner';
+    b.textContent = 'Review mode: ' + document.querySelectorAll('.tbc').length + ' placeholders highlighted';
+    document.body.appendChild(b);
+  }
+  checkReview();
+  window.addEventListener('hashchange', checkReview);
+
   // Header border once the page scrolls
   function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true });
