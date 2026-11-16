@@ -99,4 +99,70 @@
       }
     });
   }
+
+  // Team profiles: a slide-in panel with background, highlights and LinkedIn (about page only)
+  var sheet = document.getElementById('profile');
+  var dataEl = document.getElementById('people-data');
+  if (sheet && dataEl) {
+    var people = JSON.parse(dataEl.textContent);
+    var current = -1;
+    var opener = null;
+    var $ = function (id) { return document.getElementById(id); };
+
+    function render(i) {
+      var p = people[i];
+      current = i;
+      $('profile-tier').textContent = p.tier;
+      $('profile-photo').innerHTML = p.photo
+        ? '<img src="assets/team/' + p.photo + '" alt="' + p.name.replace(/"/g, '') + '" width="600" height="600">'
+        : '<span class="initials tbc" aria-hidden="true">' + p.initials + '</span>';
+      $('profile-name').innerHTML = p.name;
+      $('profile-title').innerHTML = p.title;
+      $('profile-focus').innerHTML = p.focus;
+      $('profile-bio').innerHTML = p.bio;
+      $('profile-tags').innerHTML = p.highlights.map(function (h) { return '<li>' + h + '</li>'; }).join('');
+      $('profile-li').innerHTML = p.linkedin
+        ? '<a href="' + p.linkedin + '" target="_blank" rel="noopener" aria-label="' + p.name.replace(/"/g, '') + ' on LinkedIn"><svg><use href="#i-linkedin"/></svg></a>'
+        : '';
+      try { history.replaceState(null, '', '#' + p.slug); } catch (err) {}
+    }
+
+    function openProfile(i) {
+      render(i);
+      if (!sheet.open) {
+        sheet.showModal();
+        document.body.classList.add('sheet-open');
+      }
+      $('profile-close').focus();
+    }
+
+    function closeProfile() {
+      if (sheet.open) sheet.close();
+    }
+
+    sheet.addEventListener('close', function () {
+      document.body.classList.remove('sheet-open');
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
+      if (opener) opener.focus();
+    });
+    sheet.addEventListener('click', function (e) { if (e.target === sheet) closeProfile(); });
+    $('profile-close').addEventListener('click', closeProfile);
+    $('profile-prev').addEventListener('click', function () { render((current - 1 + people.length) % people.length); });
+    $('profile-next').addEventListener('click', function () { render((current + 1) % people.length); });
+
+    document.querySelectorAll('[data-person]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        opener = btn;
+        var slug = btn.getAttribute('data-person');
+        for (var i = 0; i < people.length; i++) if (people[i].slug === slug) return openProfile(i);
+      });
+    });
+
+    function fromHash() {
+      var slug = location.hash.slice(1);
+      for (var i = 0; i < people.length; i++) if (people[i].slug === slug) return openProfile(i);
+    }
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+  }
 })();
