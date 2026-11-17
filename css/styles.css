@@ -1155,3 +1155,9 @@ html.has-subnav { scroll-padding-top: 140px; }
   .wwu-visual .hero-facts div:first-child { border-top: 0; }
 }
 @media (max-width: 900px) { .story-visual .story-shift { position: relative; z-index: 1; left: auto; bottom: auto; width: auto; margin: -40px 16px 0; } }
+
+/* Home: Juliana IQ glimpse, image held to a readable size, heading on one line */
+.iq-glimpse { grid-template-columns: minmax(0, 500px) 1fr; gap: 56px; }
+.iq-glimpse h3 { font-size: 22px; }
+.iq-glimpse > div { max-width: 520px; }
+@media (max-width: 900px) { .iq-glimpse { grid-template-columns: 1fr; } .iq-glimpse figure { max-width: 520px; } }
