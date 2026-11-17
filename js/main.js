@@ -168,6 +168,56 @@
     a.addEventListener('click', function () { setTimeout(openLinkedCase, 0); });
   });
 
+  // Detail pages: the "On this page" index follows as a slim bar once the hero scrolls away,
+  // and marks the section being read
+  var jump = document.querySelector('.jump');
+  if (jump) {
+    var bar = document.createElement('nav');
+    bar.className = 'subnav';
+    bar.setAttribute('aria-label', 'On this page, sections');
+    var row = document.createElement('div');
+    row.className = 'container';
+    var barLinks = [];
+    jump.querySelectorAll('a').forEach(function (a) {
+      var c = a.cloneNode(true);
+      c.tabIndex = -1;
+      row.appendChild(c);
+      barLinks.push(c);
+    });
+    bar.appendChild(row);
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    document.documentElement.classList.add('has-subnav');
+    var sections = barLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    var current = -1;
+
+    function updateBar() {
+      var show = jump.getBoundingClientRect().bottom < 76;
+      if (bar.classList.contains('is-visible') !== show) {
+        bar.classList.toggle('is-visible', show);
+        bar.setAttribute('aria-hidden', String(!show));
+        barLinks.forEach(function (a) { a.tabIndex = show ? 0 : -1; });
+      }
+      var active = -1;
+      sections.forEach(function (sec, k) { if (sec && sec.getBoundingClientRect().top <= 150) active = k; });
+      if (active !== current) {
+        current = active;
+        barLinks.forEach(function (a, k) {
+          a.classList.toggle('is-active', k === active);
+          if (k === active) { a.setAttribute('aria-current', 'location'); a.scrollIntoView({ block: 'nearest', inline: 'nearest' }); }
+          else a.removeAttribute('aria-current');
+        });
+      }
+    }
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; updateBar(); });
+    }, { passive: true });
+    updateBar();
+  }
+
   // Team profiles: a slide-in panel with background, highlights and LinkedIn (about page only)
   var sheet = document.getElementById('profile');
   var dataEl = document.getElementById('people-data');
