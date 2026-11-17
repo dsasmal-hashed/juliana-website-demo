@@ -1161,3 +1161,9 @@ html.has-subnav { scroll-padding-top: 140px; }
 .iq-glimpse h3 { font-size: 22px; }
 .iq-glimpse > div { max-width: 520px; }
 @media (max-width: 900px) { .iq-glimpse { grid-template-columns: 1fr; } .iq-glimpse figure { max-width: 520px; } }
+
+/* About: advisors at the same size as the leadership team, two per row */
+.members--advisors { grid-template-columns: repeat(2, 1fr); column-gap: 48px; row-gap: 36px; }
+.member--advisor .role { line-height: 1.4; }
+.advisors-block { margin-top: 72px; }
+@media (max-width: 900px) { .members--advisors { grid-template-columns: 1fr; } }
