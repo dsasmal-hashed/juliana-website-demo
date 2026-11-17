@@ -47,6 +47,7 @@
     <nav class="nav" id="site-nav" aria-label="Main">
       <div class="nav-links">
         <a href="how-it-works.html">How it works</a>
+        <a href="working-with-us.html">Working with us</a>
         <a href="results.html" class="is-active" aria-current="page">Results</a>
         <a href="about.html">About us</a>
       </div>
@@ -58,41 +59,84 @@
 <main>
 
 <!-- Hero -->
-<section class="page-hero">
-  <div class="container hero-grid">
-    <div>
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Results</span></nav>
-      <h1>Measured in practice, one patient at a time</h1>
-      <p class="lead">The model was built and refined at a leading academic health system, and measured against a matched comparison. Here are the outcomes, where the return comes from, and three patients whose care changed.</p>
-      <nav class="jump" aria-label="On this page">
-        <a href="#outcomes">Outcomes</a>
-        <a href="#return">Where the return comes from</a>
-        <a href="#stories">Patient stories</a>
-      </nav>
-    </div>
-    <div class="hero-media">
-      <img src="assets/img/patient-care.jpg" alt="A clinician and nurse talking with a smiling patient in a hospital room" width="1200" height="877">
-    </div>
+<section class="page-hero page-hero--solo">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Results</span></nav>
+    <h1>Fewer return admissions, shorter stays, and a team that stays</h1>
+    <p class="lead">Nearly a decade of results at a leading academic health system, each measured against its own comparison. Here is what changed, how it was measured, what it means for a hospital, and the patients behind the numbers.</p>
+    <nav class="jump" aria-label="On this page">
+      <a href="#outcomes">Outcomes</a>
+      <a href="#measured">How results are measured</a>
+      <a href="#return">Where the return comes from</a>
+      <a href="#stories">The patients behind the numbers</a>
+    </nav>
   </div>
 </section>
 
 <!-- Outcomes -->
-<section class="section section--dark" id="outcomes">
+<section class="section section--tint" id="outcomes">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Proven at a leading academic health system</span>
-      <h2>Results measured in practice, against a matched comparison</h2>
+      <h2>What changed, and against what</h2>
+      <p>Each result comes from its own dataset and comparison, shown on its card. Together they span more than <span class="tbc">2,300</span> complex patients enrolled since 2017.</p>
     </div>
-    <div class="results-grid reveal">
-      <div class="result"><strong>23%</strong><span>lower risk of recurrent hospitalization</span></div>
-      <div class="result"><strong>12.4%</strong><span>shorter length of stay</span></div>
-      <div class="result"><strong>2,300+</strong><span>complex patients enrolled and treated since 2017</span></div>
-      <div class="result"><strong>50%</strong><span>decrease in 30-day readmission rate</span></div>
+    <div class="outcomes">
+      <article class="outcome reveal" id="o-recurrent">
+        <strong class="o-num">23%</strong>
+        <h3>lower risk of recurrent hospitalization</h3>
+        <p>Over five years, enrolled patients were 23% less likely to be hospitalized again than matched patients outside the program.</p>
+        <div class="cmp" role="img" aria-label="Relative risk of recurrent hospitalization: matched comparison 1.00, program patients 0.77">
+          <div class="cmp-row"><span class="cmp-name">Matched comparison</span><span class="cmp-track"><span class="cmp-bar" style="width:100%"></span></span><span class="cmp-val">1.00</span></div>
+          <div class="cmp-row is-program"><span class="cmp-name">Program patients</span><span class="cmp-track"><span class="cmp-bar" style="width:77%"></span></span><span class="cmp-val">0.77</span></div>
+        </div>
+        <p class="o-src">Adjusted hazard ratio 0.77 (95% CI 0.72–0.83), propensity-matched, five-year follow-up, n=1,392.</p>
+        <a class="o-link" href="#case-2">In one patient's care: the admission that didn't happen <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="outcome reveal" id="o-los">
+        <strong class="o-num">12.4%</strong>
+        <h3>shorter length of stay</h3>
+        <p>Stays averaged 5.86 days, 0.83 days shorter than for comparably complex patients outside the program.</p>
+        <div class="cmp" role="img" aria-label="Average length of stay: comparison 6.69 days, program patients 5.86 days">
+          <div class="cmp-row"><span class="cmp-name">Comparison</span><span class="cmp-track"><span class="cmp-bar" style="width:100%"></span></span><span class="cmp-val">6.69 days</span></div>
+          <div class="cmp-row is-program"><span class="cmp-name">Program patients</span><span class="cmp-track"><span class="cmp-bar" style="width:88.0%"></span></span><span class="cmp-val">5.86 days</span></div>
+        </div>
+        <p class="o-src">Unadjusted mean, program patients (n=448) vs. comparably complex non-program patients <span class="tbc">(HCC ≥2.0, n=23,506)</span>.</p>
+        <a class="o-link" href="#case-3">In one patient's care: the stalled discharge <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="outcome reveal" id="o-readmit">
+        <strong class="o-num">50%</strong>
+        <h3>lower 30-day readmission rate</h3>
+        <p>The 30-day readmission rate halved after enrollment, from 26.6% to 13.3%.</p>
+        <div class="cmp" role="img" aria-label="30-day readmission rate: before enrollment 26.6%, after enrollment 13.3%">
+          <div class="cmp-row"><span class="cmp-name">Before enrollment</span><span class="cmp-track"><span class="cmp-bar" style="width:100%"></span></span><span class="cmp-val">26.6%</span></div>
+          <div class="cmp-row is-program"><span class="cmp-name">After enrollment</span><span class="cmp-track"><span class="cmp-bar" style="width:50%"></span></span><span class="cmp-val">13.3%</span></div>
+        </div>
+        <p class="o-src">Before and after enrollment, program operational dataset, n=4,843. <a href="#measured">Why we pair this with a fair comparison.</a></p>
+        <a class="o-link" href="#case-1">In one patient's care: the readmission cycle <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="outcome outcome--team reveal" id="o-team">
+        <strong class="o-num">Highest</strong>
+        <h3>care team job satisfaction in the health system</h3>
+        <p>The people who run the model rate their jobs higher than any other team in their health system. The program began as a response to clinician burnout.</p>
+        <a class="o-link" href="about.html#story">How the program began <svg><use href="#i-arrow"/></svg></a>
+      </article>
     </div>
-    <div class="results-foot">
-      <p>Plus, the highest care team job satisfaction rating in the health system.</p>
+  </div>
+</section>
+
+<!-- How results are measured -->
+<section class="section" id="measured">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Measured at your health system, against your own baseline</h2>
+      <p>The founding results show what the model can do. At your hospital, the program is measured the same careful way, with your clinical, analytics and finance leaders.</p>
     </div>
-    <p class="sources sources--band"><strong>Sources.</strong> Recurrent hospitalization: adjusted hazard ratio 0.77 (95% CI 0.72–0.83), propensity-matched, five-year follow-up, n=1,392. Length of stay: unadjusted mean, founding-site patients (n=448) vs. comparably complex non-program patients (HCC ≥2.0, n=23,506). 30-day readmission: operational dataset (n=4,843).</p>
+    <div class="measure">
+      <div class="reveal"><h3>One baseline</h3><p>Computed from your records before go-live and agreed by your clinical, analytics and finance leaders.</p></div>
+      <div class="reveal"><h3>A fair comparison</h3><p>Patients enroll after a period of high use, so a simple before-and-after can overstate the effect. Each engagement agrees a comparison that accounts for it.</p></div>
+      <div class="reveal"><h3>Fidelity alongside outcomes</h3><p>Huddles held, commitments closed on time and patients placed on the unit, reported monthly with results.</p></div>
+      <div class="reveal"><h3>Value your finance team validates</h3><p>Capacity and cost benefits counted separately and never twice, with your finance team.</p></div>
+    </div>
   </div>
 </section>
 
@@ -100,13 +144,13 @@
 <section class="section section--tint" id="return">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">The return</span>
       <h2>Where the return comes from</h2>
+      <p>Each outcome above turns into a specific return for the hospital, counted once and validated with your finance team.</p>
     </div>
     <div class="returns">
-      <div class="return reveal"><span class="label">Readmissions + ED visits</span><h3>Fewer return admissions</h3><p>Each avoided admission removes cost and lowers HRRP penalty exposure.</p></div>
-      <div class="return reveal"><span class="label">Length of stay</span><h3>Bed-days back</h3><p>Shorter stays free staffed beds for queued surgical and transfer volume.</p></div>
-      <div class="return reveal"><span class="label">Total cost of care</span><h3>Margin on fixed payment</h3><p>Lower cost per case improves margin under DRG and value-based contracts.</p></div>
+      <div class="return reveal"><span class="label">From shorter stays</span><h3>Bed-days back</h3><p>Staffed beds open for queued surgical, transfer and emergency volume, without building new ones.</p></div>
+      <div class="return reveal"><span class="label">From fewer return admissions</span><h3>Cost and penalty exposure down</h3><p>Each avoided admission removes its cost and lowers readmission penalty exposure.</p></div>
+      <div class="return reveal"><span class="label">From lower cost per case</span><h3>Margin on fixed payment</h3><p>Under DRG and value-based contracts, the savings per case drop to margin.</p></div>
     </div>
     <div class="callout reveal">
       <div>
@@ -122,22 +166,118 @@
 <section class="section stories-head" id="stories">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Patient stories</span>
-      <h2>Behind the numbers, a patient whose care had stalled</h2>
-      <p>Three patients from the founding program, and what changed when one team owned the whole picture.</p>
+      <h2>The patients behind the numbers</h2>
+      <p>Every hospital has patients like these three: often called hard to place, and admitted again and again. Each story shows one of the outcomes above in a single patient's care.</p>
     </div>
   </div>
 </section>
 
+<!-- Case 2 -->
+<article class="case" id="case-2">
+  <div class="container">
+    <div class="case-head">
+      <div class="reveal">
+        <a class="case-num" href="#o-recurrent">Recurrent hospitalization</a>
+        <h2>The admission that didn't happen</h2>
+        <p class="profile">A man in his late 50s admitted with heart failure and respiratory failure, whose behavioral needs were making discharge hard to plan.</p>
+        <p class="case-did"><strong>What the team did:</strong> Paired careful heart failure care with a structured behavioral plan, and coordinated early with his group home.</p>
+      </div>
+      <div class="shift reveal" aria-label="Where he started and where he is now">
+        <div class="before"><small>Before</small><strong>Repeated recent admissions, unstable housing</strong></div>
+        <div class="arrow"><span><svg><use href="#i-arrow"/></svg></span></div>
+        <div class="after"><small>Now</small><strong>Back at his group home, with follow-up in place</strong></div>
+      </div>
+    </div>
+    <details class="case-more">
+      <summary>Read the full story<svg><use href="#i-plus"/></svg></summary>
+      <div class="tags"><span>Heart failure (HFpEF)</span><span>Intellectual disability</span><span>Chronic suicidal ideation</span><span>Cocaine use disorder</span><span>Hypertension, diabetes, asthma</span></div>
+    <div class="journey">
+      <div class="stage reveal">
+        <span class="step-label"><i>1</i>What made it hard</span>
+        <h3>Two kinds of instability at once</h3>
+        <p>He needed careful diuresis for fluid overload while also living with agitation and long-standing self-harm risk. Together these lengthened his stay and complicated discharge, though he did not meet criteria for psychiatric admission.</p>
+      </div>
+      <div class="stage reveal">
+        <span class="step-label"><i>2</i>What the team did</span>
+        <h3>Medical, behavioral and social care, together</h3>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>A structured behavioral plan built on positive reinforcement</li>
+          <li><svg><use href="#i-check"/></svg>Early coordination with his group home</li>
+          <li><svg><use href="#i-check"/></svg>Tailored diuresis, oxygen weaning and guideline-directed therapy</li>
+          <li><svg><use href="#i-check"/></svg>Psychiatric medication optimized, with close monitoring</li>
+        </ul>
+      </div>
+      <div class="stage stage--outcome reveal">
+        <span class="step-label"><i>3</i>The outcome</span>
+        <h3>Stable, and home</h3>
+        <p>He was weaned to room air at rest and returned to his group home, with ongoing case management and social work support from the program.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>No psychiatric admission needed</li>
+          <li><svg><use href="#i-check"/></svg>Medically stabilized</li>
+          <li><svg><use href="#i-check"/></svg>Cardiology and sleep medicine follow-up arranged</li>
+        </ul>
+      </div>
+    </div>
+    </details>
+  </div>
+</article>
+<!-- Case 3 -->
+<article class="case" id="case-3">
+  <div class="container">
+    <div class="case-head">
+      <div class="reveal">
+        <a class="case-num" href="#o-los">Length of stay</a>
+        <h2>The stalled discharge</h2>
+        <p class="profile">A woman in her late 50s with severe medical, psychiatric and social complexity, after repeated post-acute placements that did not hold.</p>
+        <p class="case-did"><strong>What the team did:</strong> Worked her medical, behavioral and placement needs in parallel across a long admission.</p>
+      </div>
+      <div class="shift reveal" aria-label="Where she started and where she is now">
+        <div class="before"><small>Before</small><strong>33 admissions in six years</strong></div>
+        <div class="arrow"><span><svg><use href="#i-arrow"/></svg></span></div>
+        <div class="after"><small>Now</small><strong>No acute care visits since enrollment</strong></div>
+      </div>
+    </div>
+    <details class="case-more">
+      <summary>Read the full story<svg><use href="#i-plus"/></svg></summary>
+      <div class="tags"><span>Type 1 diabetes</span><span>COPD</span><span>Chronic kidney disease</span><span>Coronary artery disease</span><span>HFpEF</span><span>Neurocognitive disorder</span><span>Intellectual disability</span><span>Housing instability</span></div>
+    <div class="journey">
+      <div class="stage reveal">
+        <span class="step-label"><i>1</i>What made it hard</span>
+        <h3>Medically ready was not the same as ready to leave</h3>
+        <p>Frailty, fluctuating delirium, behavioral instability and few post-acute options kept her in hospital. Medical stabilization and discharge planning were moving on separate tracks, so her stay grew longer and admissions recurred.</p>
+      </div>
+      <div class="stage reveal">
+        <span class="step-label"><i>2</i>What the team did</span>
+        <h3>Medical, behavioral and placement work in parallel</h3>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Tailored neurobehavioral management when standard approaches did not work</li>
+          <li><svg><use href="#i-check"/></svg>A long-range plan across a prolonged admission</li>
+          <li><svg><use href="#i-check"/></svg>Structured behavioral plans</li>
+          <li><svg><use href="#i-check"/></svg>Close work across medicine, nursing, pharmacy and case management</li>
+        </ul>
+      </div>
+      <div class="stage stage--outcome reveal">
+        <span class="step-label"><i>3</i>The outcome</span>
+        <h3>Stabilized, placed, and staying well</h3>
+        <p>She stabilized despite several complications, a conservatorship was put in place and the barriers to discharge were resolved.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Moved to post-acute care, then to long-term care</li>
+          <li><svg><use href="#i-check"/></svg>No further acute care presentations since enrollment</li>
+        </ul>
+      </div>
+    </div>
+    </details>
+  </div>
+</article>
 <!-- Case 1 -->
 <article class="case" id="case-1">
   <div class="container">
     <div class="case-head">
       <div class="reveal">
-        <span class="case-num">Case 01</span>
-        <h2>Breaking a cycle of readmissions</h2>
+        <a class="case-num" href="#o-readmit">Readmissions</a>
+        <h2>The readmission cycle</h2>
         <p class="profile">A woman in her late 40s with more than 40 readmissions over four years, living with medical, psychiatric and behavioral complexity.</p>
-        <div class="tags"><span>Insulin-dependent diabetes</span><span>Schizoaffective disorder</span><span>Borderline personality disorder</span><span>Substance use</span></div>
+        <p class="case-did"><strong>What the team did:</strong> Coordinated medicine, orthopedics, infectious disease and psychiatry around one plan, and started post-acute planning early.</p>
       </div>
       <div class="shift reveal" aria-label="Where she started and where she is now">
         <div class="before"><small>Before</small><strong>40+ readmissions in four years</strong></div>
@@ -145,6 +285,9 @@
         <div class="after"><small>Now</small><strong>Stable, living in a group home</strong></div>
       </div>
     </div>
+    <details class="case-more">
+      <summary>Read the full story<svg><use href="#i-plus"/></svg></summary>
+      <div class="tags"><span>Insulin-dependent diabetes</span><span>Schizoaffective disorder</span><span>Borderline personality disorder</span><span>Substance use</span></div>
     <div class="journey">
       <div class="stage reveal">
         <span class="step-label"><i>1</i>What made it hard</span>
@@ -173,97 +316,7 @@
         </ul>
       </div>
     </div>
-  </div>
-</article>
-
-<!-- Case 2 -->
-<article class="case section--tint" id="case-2">
-  <div class="container">
-    <div class="case-head">
-      <div class="reveal">
-        <span class="case-num">Case 02</span>
-        <h2>Home safely, without a psychiatric admission</h2>
-        <p class="profile">A man in his late 50s admitted with heart failure and respiratory failure, whose behavioral needs were making discharge hard to plan.</p>
-        <div class="tags"><span>Heart failure (HFpEF)</span><span>Intellectual disability</span><span>Chronic suicidal ideation</span><span>Cocaine use disorder</span><span>Hypertension, diabetes, asthma</span></div>
-      </div>
-      <div class="shift reveal" aria-label="Where he started and where he is now">
-        <div class="before"><small>Before</small><strong>Repeated recent admissions, unstable housing</strong></div>
-        <div class="arrow"><span><svg><use href="#i-arrow"/></svg></span></div>
-        <div class="after"><small>Now</small><strong>Back at his group home, with follow-up in place</strong></div>
-      </div>
-    </div>
-    <div class="journey">
-      <div class="stage reveal">
-        <span class="step-label"><i>1</i>What made it hard</span>
-        <h3>Two kinds of instability at once</h3>
-        <p>He needed careful diuresis for fluid overload while also living with agitation and long-standing self-harm risk. Together these lengthened his stay and complicated discharge, though he did not meet criteria for psychiatric admission.</p>
-      </div>
-      <div class="stage reveal">
-        <span class="step-label"><i>2</i>What the team did</span>
-        <h3>Medical, behavioral and social care, together</h3>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>A structured behavioral plan built on positive reinforcement</li>
-          <li><svg><use href="#i-check"/></svg>Early coordination with his group home</li>
-          <li><svg><use href="#i-check"/></svg>Tailored diuresis, oxygen weaning and guideline-directed therapy</li>
-          <li><svg><use href="#i-check"/></svg>Psychiatric medication optimized, with close monitoring</li>
-        </ul>
-      </div>
-      <div class="stage stage--outcome reveal">
-        <span class="step-label"><i>3</i>The outcome</span>
-        <h3>Stable, and home</h3>
-        <p>He was weaned to room air at rest and returned to his group home, with ongoing case management and social work support from the program.</p>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>No psychiatric admission needed</li>
-          <li><svg><use href="#i-check"/></svg>Medically stabilized</li>
-          <li><svg><use href="#i-check"/></svg>Cardiology and sleep medicine follow-up arranged</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- Case 3 -->
-<article class="case" id="case-3">
-  <div class="container">
-    <div class="case-head">
-      <div class="reveal">
-        <span class="case-num">Case 03</span>
-        <h2>From stalled in hospital to stable placement</h2>
-        <p class="profile">A woman in her late 50s with severe medical, psychiatric and social complexity, after repeated post-acute placements that did not hold.</p>
-        <div class="tags"><span>Type 1 diabetes</span><span>COPD</span><span>Chronic kidney disease</span><span>Coronary artery disease</span><span>HFpEF</span><span>Neurocognitive disorder</span><span>Intellectual disability</span><span>Housing instability</span></div>
-      </div>
-      <div class="shift reveal" aria-label="Where she started and where she is now">
-        <div class="before"><small>Before</small><strong>33 admissions in six years</strong></div>
-        <div class="arrow"><span><svg><use href="#i-arrow"/></svg></span></div>
-        <div class="after"><small>Now</small><strong>No acute care visits since enrollment</strong></div>
-      </div>
-    </div>
-    <div class="journey">
-      <div class="stage reveal">
-        <span class="step-label"><i>1</i>What made it hard</span>
-        <h3>Medically ready was not the same as ready to leave</h3>
-        <p>Frailty, fluctuating delirium, behavioral instability and few post-acute options kept her in hospital. Medical stabilization and discharge planning were moving on separate tracks, so her stay grew longer and admissions recurred.</p>
-      </div>
-      <div class="stage reveal">
-        <span class="step-label"><i>2</i>What the team did</span>
-        <h3>Medical, behavioral and placement work in parallel</h3>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Tailored neurobehavioral management when standard approaches did not work</li>
-          <li><svg><use href="#i-check"/></svg>A long-range plan across a prolonged admission</li>
-          <li><svg><use href="#i-check"/></svg>Structured behavioral plans</li>
-          <li><svg><use href="#i-check"/></svg>Close work across medicine, nursing, pharmacy and case management</li>
-        </ul>
-      </div>
-      <div class="stage stage--outcome reveal">
-        <span class="step-label"><i>3</i>The outcome</span>
-        <h3>Stabilized, placed, and staying well</h3>
-        <p>She stabilized despite several complications, a conservatorship was put in place and the barriers to discharge were resolved.</p>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Moved to post-acute care, then to long-term care</li>
-          <li><svg><use href="#i-check"/></svg>No further acute care presentations since enrollment</li>
-        </ul>
-      </div>
-    </div>
+    </details>
   </div>
 </article>
 
@@ -274,7 +327,7 @@
     <p>For the hospital, that means fewer repeat admissions, more reliable discharges and beds freed for the patients waiting for them.</p>
     <div class="hero-actions">
       <a class="btn btn--light" href="index.html#contact">Schedule a conversation</a>
-      <a class="btn btn--secondary" style="color:#FFFFFF;border-color:#2E4A66" href="index.html#model">See how the model works <svg><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--secondary" style="color:#FFFFFF;border-color:#2E4A66" href="how-it-works.html">See how the model works <svg><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -298,6 +351,7 @@
       <nav aria-label="Explore">
         <h4>Explore</h4>
         <a href="how-it-works.html">How it works</a>
+        <a href="working-with-us.html">Working with us</a>
         <a href="results.html">Results</a>
         <a href="about.html">About us</a>
         <a href="index.html#contact">Contact</a>

@@ -60,6 +60,24 @@
     items.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  // Home hero panel: about 850 enrolled patients, about 20 in the unit on a given day
+  var panel = document.getElementById('panel');
+  if (panel) {
+    var NS = 'http://www.w3.org/2000/svg', cols = 34, total = 850, admitted = 20, gap = 14.2, r = 4.2;
+    var seed = 11, lit = {}, count = 0, frag = document.createDocumentFragment();
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    while (count < admitted) { var k = Math.floor(rnd() * total); if (!lit[k]) { lit[k] = 1; count++; } }
+    for (var i = 0; i < total; i++) {
+      var c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', 11 + (i % cols) * gap);
+      c.setAttribute('cy', 11 + Math.floor(i / cols) * gap);
+      c.setAttribute('r', lit[i] ? r + 2 : r);
+      c.style.fill = lit[i] ? 'var(--navy)' : 'var(--border)';
+      frag.appendChild(c);
+    }
+    panel.appendChild(frag);
+  }
+
   // Highlight the nav link for the section in view
   var links = document.querySelectorAll('.nav-links a');
   // Only same-page links (#id) take part; links to other pages keep their own state
@@ -75,21 +93,58 @@
     sections.forEach(function (s) { if (s) spy.observe(s); });
   }
 
-  // Contact form: shows a confirmation with the details ready to copy (no server yet)
+  // Contact form: posts to the form service in data-endpoint; until one is set, opens a pre-filled email
   var form = document.getElementById('contact-form');
   if (form) {
     var done = document.getElementById('form-done');
+    var msg = document.getElementById('done-msg');
+    var copyBtn = document.getElementById('copy-details');
+    var to = 'psorrentino@juliana.care';
     var details = '';
+    var submitLabel = document.getElementById('submit-label');
+    var labels = { conversation: 'Schedule a conversation', snapshot: 'Request your snapshot' };
+
+    function intent() { var c = form.querySelector('input[name="intent"]:checked'); return c ? c.value : 'conversation'; }
+    function setIntent(v) {
+      var r = form.querySelector('input[name="intent"][value="' + v + '"]');
+      if (r) r.checked = true;
+      submitLabel.textContent = labels[v] || labels.conversation;
+      document.querySelectorAll('[data-show]').forEach(function (el) { el.hidden = el.getAttribute('data-show') !== v; });
+    }
+    form.addEventListener('change', function (e) { if (e.target.name === 'intent') setIntent(e.target.value); });
+    document.querySelectorAll('[data-intent]').forEach(function (a) {
+      a.addEventListener('click', function () { setIntent(a.getAttribute('data-intent')); });
+    });
+
+    function finish(first, sent) {
+      var what = intent() === 'snapshot' ? 'to walk you through your opportunity snapshot' : 'to arrange a first conversation';
+      msg.innerHTML = sent
+        ? '<strong>Thank you' + first + '.</strong> Patrick will be in touch ' + what + '.'
+        : '<strong>Thank you' + first + '.</strong> Your email app should open with these details addressed to Patrick, who will be in touch ' + what + '. If it does not open, copy the details and send them to <strong>' + to + '</strong>.';
+      copyBtn.hidden = sent;
+      done.hidden = false;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
       var d = new FormData(form);
-      details = 'Name: ' + d.get('name') + '\nEmail: ' + d.get('email') + '\nHospital or health system: ' + d.get('org') +
-        (d.get('message') ? '\n\n' + d.get('message') : '');
-      document.getElementById('done-name').textContent = ', ' + String(d.get('name')).split(' ')[0];
-      done.hidden = false;
+      var first = ', ' + String(d.get('name')).trim().split(' ')[0];
+      var ask = intent() === 'snapshot' ? 'Opportunity snapshot' : 'First conversation';
+      details = 'Request: ' + ask + '\nName: ' + d.get('name') + '\nEmail: ' + d.get('email') + '\nHospital or health system: ' + d.get('org') +
+        (d.get('role') ? '\nRole: ' + d.get('role') : '') + (d.get('message') ? '\n\n' + d.get('message') : '');
+      var mailto = 'mailto:' + to + '?subject=' + encodeURIComponent(ask + ': ' + d.get('org')) + '&body=' + encodeURIComponent(details);
+      var endpoint = form.getAttribute('data-endpoint');
+      if (endpoint) {
+        fetch(endpoint, { method: 'POST', body: d, headers: { Accept: 'application/json' } })
+          .then(function (r) { if (!r.ok) throw new Error(r.status); finish(first, true); })
+          .catch(function () { window.location.href = mailto; finish(first, false); });
+      } else {
+        window.location.href = mailto;
+        finish(first, false);
+      }
     });
-    var copyBtn = document.getElementById('copy-details');
+
     copyBtn.addEventListener('click', function () {
       function copied() { copyBtn.textContent = 'Copied'; }
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -99,6 +154,19 @@
       }
     });
   }
+
+  // A case reached by a link opens its full story, so the visitor never needs a second click
+  function openLinkedCase() {
+    var id = location.hash.slice(1);
+    if (!/^case-\d+$/.test(id)) return;
+    var more = document.querySelector('#' + id + ' .case-more');
+    if (more) more.open = true;
+  }
+  openLinkedCase();
+  window.addEventListener('hashchange', openLinkedCase);
+  document.querySelectorAll('a[href^="#case-"]').forEach(function (a) {
+    a.addEventListener('click', function () { setTimeout(openLinkedCase, 0); });
+  });
 
   // Team profiles: a slide-in panel with background, highlights and LinkedIn (about page only)
   var sheet = document.getElementById('profile');
