@@ -1167,3 +1167,5 @@ html.has-subnav { scroll-padding-top: 140px; }
 .member--advisor .role { line-height: 1.4; }
 .advisors-block { margin-top: 72px; }
 @media (max-width: 900px) { .members--advisors { grid-template-columns: 1fr; } }
+#team + #hashed { padding-top: 0; }
+#team { padding-bottom: 64px; }
