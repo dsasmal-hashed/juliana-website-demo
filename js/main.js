@@ -60,10 +60,10 @@
     items.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  // Home hero panel: about 850 enrolled patients, about 20 in the unit on a given day
+  // Home hero panel: about 1,000 enrolled patients, about 20 in the unit on a given day
   var panel = document.getElementById('panel');
   if (panel) {
-    var NS = 'http://www.w3.org/2000/svg', cols = 34, total = 850, admitted = 20, gap = 14.2, r = 4.2;
+    var NS = 'http://www.w3.org/2000/svg', cols = 40, total = 1000, admitted = 20, gap = 12, r = 3.6;
     var seed = 11, lit = {}, count = 0, frag = document.createDocumentFragment();
     function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
     while (count < admitted) { var k = Math.floor(rnd() * total); if (!lit[k]) { lit[k] = 1; count++; } }
@@ -99,7 +99,7 @@
     var done = document.getElementById('form-done');
     var msg = document.getElementById('done-msg');
     var copyBtn = document.getElementById('copy-details');
-    var to = 'psorrentino@juliana.care';
+    var to = 'connect@juliana.care';
     var details = '';
     var submitLabel = document.getElementById('submit-label');
     var labels = { conversation: 'Schedule a conversation', snapshot: 'Request your snapshot' };
@@ -119,8 +119,8 @@
     function finish(first, sent) {
       var what = intent() === 'snapshot' ? 'to walk you through your opportunity snapshot' : 'to arrange a first conversation';
       msg.innerHTML = sent
-        ? '<strong>Thank you' + first + '.</strong> Patrick will be in touch ' + what + '.'
-        : '<strong>Thank you' + first + '.</strong> Your email app should open with these details addressed to Patrick, who will be in touch ' + what + '. If it does not open, copy the details and send them to <strong>' + to + '</strong>.';
+        ? '<strong>Thank you' + first + '.</strong> Our team will be in touch ' + what + '.'
+        : '<strong>Thank you' + first + '.</strong> Your email app should open with these details addressed to our team, who will be in touch ' + what + '. If it does not open, copy the details and send them to <strong>' + to + '</strong>.';
       copyBtn.hidden = sent;
       done.hidden = false;
     }
@@ -238,6 +238,14 @@
       $('profile-title').innerHTML = p.title;
       $('profile-focus').innerHTML = p.focus;
       $('profile-bio').innerHTML = p.bio;
+      // Placeholder copy shows only in review mode
+      var reviewing = document.documentElement.classList.contains('review');
+      [$('profile-focus'), $('profile-bio')].forEach(function (el) {
+        var onlyPlaceholder = el.querySelector('.ph') && !el.textContent.replace(/\[[^\]]*\]/g, '').trim();
+        el.hidden = onlyPlaceholder && !reviewing;
+        var label = el.previousElementSibling;
+        if (label && label.classList.contains('profile-label')) label.hidden = el.hidden;
+      });
       $('profile-tags').innerHTML = p.highlights.map(function (h) { return '<li>' + h + '</li>'; }).join('');
       $('profile-li').innerHTML = p.linkedin
         ? '<a href="' + p.linkedin + '" target="_blank" rel="noopener" aria-label="' + p.name.replace(/"/g, '') + ' on LinkedIn"><svg><use href="#i-linkedin"/></svg></a>'
