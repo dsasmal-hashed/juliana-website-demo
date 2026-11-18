@@ -17,12 +17,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700;800&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=20261118a">
+<link rel="stylesheet" href="css/styles.css?v=20261118m">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="duo-warm" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.3 0.59 0.11 0 0  0.3 0.59 0.11 0 0  0.3 0.59 0.11 0 0  0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0.063 0.42 0.969"/><feFuncG type="table" tableValues="0.145 0.47 0.937"/><feFuncB type="table" tableValues="0.227 0.53 0.902"/></feComponentTransfer></filter>
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
@@ -122,8 +123,8 @@
         <a class="o-link" href="#case-1">In one patient's care: the readmission cycle <svg><use href="#i-arrow"/></svg></a>
       </article>
       <article class="outcome outcome--team reveal" id="o-team">
-        <strong class="o-num">Highest</strong>
-        <h3>care team job satisfaction in the health system</h3>
+        <strong class="o-num">1st</strong>
+        <h3>in care team job satisfaction across the health system</h3>
         <p>The people who run the model rate their jobs higher than any other team in their health system. The program began as a response to clinician burnout.</p>
         <a class="o-link" href="about.html#story">How the program began <svg><use href="#i-arrow"/></svg></a>
       </article>
@@ -138,11 +139,11 @@
       <h2>Measured at your health system, against your own baseline</h2>
       <p>The founding results show what the model can do. At your hospital, the program is measured the same careful way, with your clinical, analytics and finance leaders.</p>
     </div>
-    <div class="measure">
-      <div class="reveal"><h3>One baseline</h3><p>Computed from your records before go-live and agreed by your clinical, analytics and finance leaders.</p></div>
-      <div class="reveal"><h3>A fair comparison</h3><p>Patients enroll after a period of high use, so a simple before-and-after can overstate the effect. Each engagement agrees a comparison that accounts for it.</p></div>
-      <div class="reveal"><h3>Fidelity alongside outcomes</h3><p>Huddles held, commitments closed on time and patients placed on the unit, reported monthly with results.</p></div>
-      <div class="reveal"><h3>Value your finance team validates</h3><p>Capacity and cost benefits counted separately and never twice, with your finance team.</p></div>
+    <div class="principles reveal">
+      <div class="principle"><span class="pr-icon"><svg><use href="#i-gauge"/></svg></span><div><h3>One baseline</h3><p>Computed from your records before go-live and agreed by your clinical, analytics and finance leaders.</p></div></div>
+      <div class="principle"><span class="pr-icon"><svg><use href="#i-list"/></svg></span><div><h3>A fair comparison</h3><p>Patients enroll after a period of high use, so a simple before-and-after can overstate the effect. Each engagement agrees a comparison that accounts for it.</p></div></div>
+      <div class="principle"><span class="pr-icon"><svg><use href="#i-pulse"/></svg></span><div><h3>Fidelity alongside outcomes</h3><p>Huddles held, commitments closed on time and patients placed on the unit, reported monthly with results.</p></div></div>
+      <div class="principle"><span class="pr-icon"><svg><use href="#i-contract"/></svg></span><div><h3>Value your finance team validates</h3><p>Capacity and cost benefits counted separately and never twice, with your finance team.</p></div></div>
     </div>
   </div>
 </section>
@@ -154,11 +155,11 @@
       <h2>Where the return comes from</h2>
       <p>Each outcome above turns into a specific return for the hospital, counted once and validated with your finance team.</p>
     </div>
-    <div class="returns">
-      <div class="return reveal"><span class="label">From shorter stays</span><h3>Bed-days back</h3><p>Staffed beds open for queued surgical, transfer and emergency volume, without building new ones.</p></div>
-      <div class="return reveal"><span class="label">From fewer return admissions</span><h3>Cost and penalty exposure down</h3><p>Each avoided admission removes its cost and lowers readmission penalty exposure.</p></div>
-      <div class="return reveal"><span class="label">From lower cost per case</span><h3>Margin on fixed payment</h3><p>Under DRG and value-based contracts, the savings per case drop to margin.</p></div>
-    </div>
+    <ol class="flow">
+      <li class="flow-row reveal"><span class="flow-from">Shorter stays</span><span class="flow-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><div class="flow-to"><h3>Bed-days back</h3><p>Staffed beds open for queued surgical, transfer and emergency volume, without building new ones.</p></div></li>
+      <li class="flow-row reveal"><span class="flow-from">Fewer return admissions</span><span class="flow-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><div class="flow-to"><h3>Cost and penalty exposure down</h3><p>Each avoided admission removes its cost and lowers readmission penalty exposure.</p></div></li>
+      <li class="flow-row reveal"><span class="flow-from">Lower cost per case</span><span class="flow-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><div class="flow-to"><h3>Margin on fixed payment</h3><p>Under DRG and value-based contracts, the savings per case drop to margin.</p></div></li>
+    </ol>
     <div class="callout reveal">
       <div>
         <h3>We identify the opportunity together</h3>
@@ -352,7 +353,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="assets/img/juliana-logo-white.png" alt="Juliana" width="153" height="30" loading="lazy">
-        <p>One team, one plan and one system for medically complex inpatients.</p>
+        <p class="footer-tagline">Start in the hospital. Stay with the patient.</p>
         <p class="tbc">Nashville, Tennessee</p>
       </div>
       <nav aria-label="Explore">
@@ -375,6 +376,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20261118a"></script>
+<script src="js/main.js?v=20261118m"></script>
 </body>
 </html>

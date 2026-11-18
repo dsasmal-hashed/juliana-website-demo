@@ -17,12 +17,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700;800&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=20261118a">
+<link rel="stylesheet" href="css/styles.css?v=20261118m">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="duo-warm" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.3 0.59 0.11 0 0  0.3 0.59 0.11 0 0  0.3 0.59 0.11 0 0  0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0.063 0.42 0.969"/><feFuncG type="table" tableValues="0.145 0.47 0.937"/><feFuncB type="table" tableValues="0.227 0.53 0.902"/></feComponentTransfer></filter>
   <filter id="duotone" color-interpolation-filters="sRGB">
     <feColorMatrix type="matrix" values="0.3 0.59 0.11 0 0  0.3 0.59 0.11 0 0  0.3 0.59 0.11 0 0  0 0 0 1 0"/>
     <feComponentTransfer>
@@ -86,23 +87,7 @@
         <a href="#iq">Juliana IQ</a>
       </nav>
     </div>
-    <div class="how-visual">
-      <div class="model-visual" aria-hidden="true">
-        <svg viewBox="0 0 340 330" role="img">
-          <circle cx="170" cy="168" r="118" fill="none" stroke="#C9DDEE" stroke-width="3" stroke-dasharray="9 9"/>
-          <circle cx="170" cy="168" r="62" fill="#FFFFFF" stroke="#417BA7" stroke-width="3"/>
-          <g fill="none" stroke="#417BA7" stroke-width="3.5" stroke-linecap="round"><circle cx="170" cy="152" r="14"/><path d="M142 196c0-15 12.5-25 28-25s28 10 28 25"/></g>
-          <g font-family="'Nunito Sans', Arial, sans-serif" text-anchor="middle">
-            <circle cx="72" cy="88" r="46" fill="#194F82" stroke="#FFFFFF" stroke-width="5"/>
-            <text x="72" y="84" fill="#D2E9FA" font-size="15" font-weight="800">01</text><text x="72" y="104" fill="#FFFFFF" font-size="16" font-weight="700">Team</text>
-            <circle cx="268" cy="88" r="46" fill="#194F82" stroke="#FFFFFF" stroke-width="5"/>
-            <text x="268" y="84" fill="#D2E9FA" font-size="15" font-weight="800">02</text><text x="268" y="104" fill="#FFFFFF" font-size="16" font-weight="700">Plan</text>
-            <circle cx="170" cy="280" r="46" fill="#194F82" stroke="#FFFFFF" stroke-width="5"/>
-            <text x="170" y="276" fill="#D2E9FA" font-size="15" font-weight="800">03</text><text x="170" y="296" fill="#FFFFFF" font-size="16" font-weight="700">System</text>
-          </g>
-        </svg>
-      </div>
-    </div>
+    <figure class="how-photo"><img src="assets/img/team-bedside.jpg" alt="A physician and a nurse together at a patient's bedside" width="1600" height="1067"></figure>
   </div>
 </section>
 
@@ -115,31 +100,28 @@
         <p>Your team runs the program. Juliana brings the operating model, nearly a decade of clinical know-how and the platform that keeps it running the same way every day.</p>
       </div>
     </div>
-    <figure class="model-compare reveal" aria-label="Care built around each stay compared with care built around the patient">
+    <figure class="model-compare model-compare--journey reveal" aria-label="One patient's journey. Built around each stay: a different team at each stay, handed on at discharge, new clinicians after, and the plan rebuilt at the next stay. Built around the patient: the plan is set in hospital, and the same team stays with the patient through discharge, skilled nursing or rehab, home alongside their own doctor, and the next stay.">
       <div class="mc-row mc-row--stay">
-        <div class="mc-label"><h3>Built around each stay</h3><p>Teams change with each admission</p></div>
-        <ul class="mc-cells"><li class="mc-cell"><b>Stay 1</b><span>Different team</span></li><li class="mc-cell"><b>Stay 2</b><span>Different team</span></li><li class="mc-cell"><b>Stay 3</b><span>Different team</span></li><li class="mc-cell mc-cell--after"><b>After discharge</b><span>Handed on to skilled nursing, rehab or home</span></li></ul>
+        <div class="mc-label"><h3>Built around each stay</h3><p>Care resets at every handoff</p></div>
+        <ul class="mc-cells"><li class="mc-cell"><b>Stay 1</b><span>Different team</span></li><li class="mc-cell"><b>Discharge</b><span>Handed on</span></li><li class="mc-cell"><b>Skilled nursing or rehab</b><span>New clinicians</span></li><li class="mc-cell"><b>Home</b><span>Back to their own doctor</span></li><li class="mc-cell"><b>Next stay</b><span>Different team, plan rebuilt</span></li></ul>
       </div>
       <div class="mc-row mc-row--patient">
-        <div class="mc-label"><h3>Built around the patient</h3><p>One team that knows the patient</p></div>
-        <ul class="mc-cells"><li class="mc-cell"><b>Stay 1</b><span>Same team</span></li><li class="mc-cell"><b>Stay 2</b><span>Same team</span></li><li class="mc-cell"><b>Stay 3</b><span>Same team</span></li><li class="mc-cell mc-cell--after"><b>After discharge</b><span>Same team, same plan</span></li></ul>
+        <div class="mc-label"><h3>Built around the patient</h3><p>One team, from hospital to home and back</p></div>
+        <ul class="mc-cells"><li class="mc-cell mc-cell--key"><b>In hospital</b><span>The plan is set</span></li><li class="mc-cell"><b>Discharge</b><span>Same team, same plan</span></li><li class="mc-cell"><b>Skilled nursing or rehab</b><span>The team follows</span></li><li class="mc-cell"><b>Home</b><span>Alongside their own doctor</span></li><li class="mc-cell"><b>Next stay</b><span>Same team</span></li></ul>
       </div>
     </figure>
     <div class="pillars">
         <article class="pillar reveal">
-          <span class="num">01</span>
           <h3>One team</h3>
           <p>Five disciplines, from physicians to pharmacists, are accountable for the same patients.</p>
           <ul><li>Hospital medicine and nursing</li><li>Case management and social work</li><li>Pharmacy</li></ul>
         </article>
         <article class="pillar reveal">
-          <span class="num">02</span>
           <h3>One plan</h3>
           <p>Daily huddles, shared care plans and named owners clear barriers and smooth transitions.</p>
           <ul><li>A morning huddle on every patient</li><li>One shared plan, in hospital and between stays</li><li>An owner and a date for every barrier</li></ul>
         </article>
         <article class="pillar reveal">
-          <span class="num">03</span>
           <h3>One system</h3>
           <p>Juliana IQ finds the right patients and keeps the model running consistently.</p>
           <ul><li>Clear enrollment criteria, set with your clinical leaders</li><li>A panel sized to your beds</li><li>Fidelity measured from day one</li></ul>
@@ -149,17 +131,19 @@
       <svg><use href="#i-shield"/></svg>
       <p><strong>Your clinicians stay in charge.</strong> Juliana IQ recommends; your team accepts, edits or declines. Every clinical decision stays with your team.</p>
     </div>
-    <div class="commits-head reveal" id="commitments">
-      <h3>Five commitments define the team</h3>
-      <p>The team practices hospital medicine the way a primary care team practices primary care: it is the patient's own team, across admissions.</p>
-    </div>
-    <ol class="commits">
-      <li class="commit reveal"><h3>It is accountable for a panel.</h3><p>One interprofessional team is responsible for its enrolled patients across admissions and between them.</p></li>
-      <li class="commit reveal"><h3>It shares one picture of every patient.</h3><p>Every discipline works from the same problems, plan, reasoning and work in progress.</p></li>
-      <li class="commit reveal"><h3>It decides together.</h3><p>Shared goals, shared knowledge and mutual respect. Physicians, nurses, case managers, social workers and pharmacists shape complex decisions as one team.</p></li>
-      <li class="commit reveal"><h3>It cares in the hospital and between stays.</h3><p>The same team is the hospital team at admission and follows its patients through transitions, post-acute care and home.</p></li>
-      <li class="commit reveal"><h3>It answers for results.</h3><p>The team tracks its panel's admissions, length of stay, readmissions and emergency department visits.</p></li>
-    </ol>
+    <section class="commit-panel reveal" id="commitments" aria-labelledby="commitments-title">
+      <div class="cp-head">
+        <h3 id="commitments-title">Five commitments define the team</h3>
+        <p>The team practices hospital medicine the way a primary care team practices primary care: it is the patient's own team, across admissions.</p>
+      </div>
+      <ol class="cr-list">
+        <li class="cr-row"><span class="cr-num">1</span><h4>It is accountable for a panel</h4><p>One interprofessional team is responsible for its enrolled patients across admissions and between them.</p></li>
+        <li class="cr-row"><span class="cr-num">2</span><h4>It shares one picture of every patient</h4><p>Every discipline works from the same problems, plan, reasoning and work in progress.</p></li>
+        <li class="cr-row"><span class="cr-num">3</span><h4>It decides together</h4><p>Shared goals, shared knowledge and mutual respect. Physicians, nurses, case managers, social workers and pharmacists shape complex decisions as one team.</p></li>
+        <li class="cr-row"><span class="cr-num">4</span><h4>It cares in the hospital and between stays</h4><p>The same team is the hospital team at admission and follows its patients through transitions, post-acute care and home.</p></li>
+        <li class="cr-row"><span class="cr-num">5</span><h4>It answers for results</h4><p>The team tracks its panel's admissions, length of stay, readmissions and emergency department visits.</p></li>
+      </ol>
+    </section>
     <div class="compare compare--how reveal">
       <table>
         <caption>What changes for these patients</caption>
@@ -212,9 +196,13 @@
 <section class="section" id="iq" style="border-top: 1px solid var(--border)">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Juliana IQ</span>
-      <h2>The shared platform that powers both models, alongside your EHR</h2>
-      <p>Built on expert clinical knowledge and know-how, Juliana IQ turns criteria, care pathways and team decisions into the daily tools your team works from.</p>
+      <p class="iq-badge iq-badge--light"><span>IQ</span>Juliana IQ</p>
+      <h2>The operating engine behind the team</h2>
+      <p>Built on the expert knowledge and know-how of the founding program, Juliana IQ turns nearly a decade of practice into the daily tools your team works from, alongside your EHR, in both Juliana Operate and Juliana Enable.</p>
+    </div>
+    <div class="iq-encodes reveal">
+      <p class="iq-encodes-label">What is built in</p>
+      <ul class="iq-built iq-built--light"><li><svg><use href="#i-check"/></svg>Enrollment criteria</li><li><svg><use href="#i-check"/></svg>The patient synopsis</li><li><svg><use href="#i-check"/></svg>Care and discharge pathways</li><li><svg><use href="#i-check"/></svg>The daily huddle</li><li><svg><use href="#i-check"/></svg>Fidelity measures</li></ul>
     </div>
     <div class="iq-grid">
       <div class="modules">
@@ -283,7 +271,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="assets/img/juliana-logo-white.png" alt="Juliana" width="153" height="30" loading="lazy">
-        <p>One team, one plan and one system for medically complex inpatients.</p>
+        <p class="footer-tagline">Start in the hospital. Stay with the patient.</p>
         <p class="tbc">Nashville, Tennessee</p>
       </div>
       <nav aria-label="Explore">
@@ -305,6 +293,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20261118a"></script>
+<script src="js/main.js?v=20261118m"></script>
 </body>
 </html>
