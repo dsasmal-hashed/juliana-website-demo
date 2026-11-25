@@ -1415,3 +1415,54 @@ html.has-subnav { scroll-padding-top: 140px; }
 /* Profile panel: show the whole square portrait, uncropped, in the same two-tone treatment as the team cards */
 .profile-photo img { width: 100%; max-width: 300px; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; border-radius: var(--radius); filter: url(#duo-warm); }
 .profile-photo img { filter: none; }  /* profile panel shows each original photo, colour or black and white as supplied */
+
+/* Home hero: the team at the bedside, with the unit figure as a card */
+.hero-photo { position: relative; margin: 0; align-self: center; }
+.hero-photo img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 62% center; border-radius: var(--r-panel); box-shadow: var(--shadow); display: block; }
+.hero-photo-card { position: absolute; left: -28px; bottom: -28px; width: min(310px, 75%); padding: 18px 22px; border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); }
+.hero-photo-card b { display: block; font-size: 19px; line-height: 1.3; color: var(--navy); }
+.hero-photo-card span { display: block; margin-top: 4px; font-size: 16px; color: var(--accent); }
+@media (max-width: 900px) { .hero-photo-card { position: relative; left: auto; bottom: auto; width: auto; margin: -36px 16px 0; } }
+.hero-photo-card { left: auto; right: -28px; } @media (max-width: 900px) { .hero-photo-card { right: auto; } }
+
+/* ===== The comparison, redesigned: separate cards vs one continuous band ===== */
+.model-compare { padding: 36px 40px; gap: 26px; }
+.mc-row { grid-template-columns: 250px 1fr; gap: 28px; }
+.mc-label h3 { font-size: 20px; white-space: nowrap; }
+.mc-label p { font-size: 15px; }
+/* Each stay: separate, quiet cards with visible gaps (fragmented) */
+.mc-row--stay .mc-cells { padding: 0; gap: 14px; grid-template-columns: repeat(4, 1fr); }
+.mc-row--stay .mc-cell, .mc-row--stay .mc-cell--after { background: rgba(255, 255, 255, 0.65); border: 1.5px dashed var(--ring); border-radius: 12px; padding: 14px 16px; }
+.mc-row--stay .mc-cell b { color: var(--muted); font-size: 15px; }
+.mc-row--stay .mc-cell span { color: var(--muted); font-size: 15px; }
+/* The patient: one continuous band with a thread through every stage (continuous) */
+.mc-row--patient .mc-cells { position: relative; padding: 0; gap: 0; grid-template-columns: repeat(4, 1fr); background: var(--navy); border-radius: 16px; box-shadow: var(--shadow-sm); overflow: hidden; }
+.mc-row--patient .mc-cells::before { content: ""; position: absolute; left: 30px; right: 30px; top: 25px; height: 2px; background: rgba(210, 233, 250, 0.45); }
+.mc-row--patient .mc-cell, .mc-row--patient .mc-cell--after { position: relative; background: transparent; border-radius: 0; padding: 44px 18px 18px; }
+.mc-row--patient .mc-cell + .mc-cell { border-left: 1px solid rgba(210, 233, 250, 0.16); }
+.mc-row--patient .mc-cell::before { content: ""; position: absolute; left: 18px; top: 19px; width: 14px; height: 14px; border-radius: 50%; background: var(--white); box-shadow: 0 0 0 4px var(--navy); }
+.mc-row--patient .mc-cell b { color: var(--sky); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+.mc-row--patient .mc-cell span { margin-top: 4px; color: var(--white); font-size: 16px; font-weight: 700; line-height: 1.4; }
+@media (max-width: 1080px) {
+  .mc-row { grid-template-columns: 1fr; gap: 12px; }
+  .mc-label h3 { white-space: normal; }
+}
+@media (max-width: 700px) {
+  .model-compare { padding: 22px 18px; }
+  .mc-row--stay .mc-cells { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mc-row--patient .mc-cells { grid-template-columns: 1fr; }
+  .mc-row--patient .mc-cells::before { left: 24px; right: auto; top: 26px; bottom: 26px; width: 2px; height: auto; }
+  .mc-row--patient .mc-cell, .mc-row--patient .mc-cell--after { padding: 16px 16px 16px 52px; }
+  .mc-row--patient .mc-cell + .mc-cell { border-left: 0; border-top: 1px solid rgba(210, 233, 250, 0.16); }
+  .mc-row--patient .mc-cell::before { left: 18px; top: 20px; }
+}
+
+
+/* Home hero: the photo uncovered; the unit fact sits in the text */
+.hero-photo img { object-position: 66% center; }
+.hero .hero-fact { margin-top: 18px; padding-left: 14px; border-left: 3px solid var(--navy); font-size: 19px; font-weight: 800; line-height: 1.35; color: var(--navy); }
+.hero .hero-fact + .hero-actions { margin-top: 30px; }
+/* Home hero: the unit fact as a caption under the photo, never over it */
+.hero-caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 18px; padding-left: 14px; border-left: 3px solid var(--navy); font-size: 18px; line-height: 1.4; }
+.hero-caption b { font-weight: 800; color: var(--navy); }
+.hero-caption span { font-weight: 800; color: var(--accent); }
