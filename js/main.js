@@ -222,7 +222,7 @@
   var sheet = document.getElementById('profile');
   var dataEl = document.getElementById('people-data');
   if (sheet && dataEl) {
-    var people = JSON.parse(dataEl.textContent);
+    var people = JSON.parse(dataEl.textContent).filter(function (p) { return !p.hidden; });  // hidden people stay in the data but never show
     var current = -1;
     var opener = null;
     var $ = function (id) { return document.getElementById(id); };
