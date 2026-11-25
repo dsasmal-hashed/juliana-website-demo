@@ -1466,3 +1466,27 @@ html.has-subnav { scroll-padding-top: 140px; }
 .hero-caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 18px; padding-left: 14px; border-left: 3px solid var(--navy); font-size: 18px; line-height: 1.4; }
 .hero-caption b { font-weight: 800; color: var(--navy); }
 .hero-caption span { font-weight: 800; color: var(--accent); }
+
+/* ===== Landing page balance pass ===== */
+/* 1. Model: heading left, paragraph right */
+.model-head { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start; margin-bottom: 48px; }
+.model-head h2 { margin: 0; }
+.model-head .link-arrow { display: inline-flex; margin-top: 18px; }
+.model-head > p { font-size: 18px; line-height: 1.65; color: var(--text); }
+/* 2. Contact on a light background, so the page ends open and the footer stands alone */
+.contact-light { background: var(--tint); background-image: none; color: var(--text); border-top: 1px solid var(--border); }
+.contact-light .contact-grid h2 { color: var(--navy); }
+.contact-light .contact-grid > div > p, .contact-light [data-show] > p { color: var(--text); }
+.contact-light .form { border: 1px solid var(--border); box-shadow: var(--shadow); }
+.contact-light .contact-snap li { color: var(--navy); }
+.contact-light .contact-snap li::before { background: var(--accent); }
+/* 3. What happens next */
+.next-label { margin-top: 30px !important; font-size: 13px !important; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent) !important; }
+.next-steps { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.next-steps li { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.45; }
+.next-steps svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+/* 6. Hero caption: a little more air, and "One team." in navy as the payoff */
+.hero-caption { margin-top: 24px; }
+.hero-caption span { color: var(--navy); }
+@media (max-width: 900px) { .model-head { grid-template-columns: 1fr; gap: 18px; } }
+#contact.contact-light [data-show] > p { color: var(--text); }
